@@ -1,0 +1,27 @@
+Features
+
+	Health Monitoring: Check service status via `/health` endpoint
+	
+	Automated Sync: Periodic synchronization of reservations every 3 minutes
+	
+	Manual Sync: Trigger sync on-demand via `/sync/trigger`
+	
+	Single Reservation Sync: Process individual reservations via `/sync/single`  - { "revisionId": "guid", "propertyId": 1234 }
+
+
+Build & Run
+
+	1. Δημιουργία Docker image
+	docker build -f Dockerfile.publish -t reservation-token-proxy .
+
+	2. Εκτέλεση container
+	docker run -d -p 8080:8080 --env-file .env --name reservation-token-proxy reservation-token-proxy
+
+	3. Έλεγχος logs
+	docker logs -f reservation-token-proxy
+
+	4. Stop / Remove container
+	docker stop reservation-token-proxy
+	docker rm reservation-token-proxy
+
+

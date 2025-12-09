@@ -1,0 +1,12 @@
+# Base runtime image μόνο
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-windowsservercore-ltsc2022 AS base
+WORKDIR /app
+EXPOSE 8080
+
+# Αντιγραφή μόνο του publish φακέλου
+COPY ./publish . 
+
+# ENV variables (προαιρετικά)
+ENV ASPNETCORE_ENVIRONMENT=Production
+
+ENTRYPOINT ["dotnet", "ReservationTokenProxy.dll"]
