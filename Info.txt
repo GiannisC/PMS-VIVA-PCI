@@ -12,7 +12,7 @@ Features
 Build & Run
 
 	1. Δημιουργία Docker image
-	docker build -f Dockerfile.publish -t reservation-token-proxy .
+	docker build -f Dockerfile -t reservation-token-proxy .
 
 	2. Εκτέλεση container
 	docker run -d -p 8080:8080 --env-file .env --name reservation-token-proxy reservation-token-proxy
@@ -23,5 +23,4 @@ Build & Run
 	4. Stop / Remove container
 	docker stop reservation-token-proxy
 	docker rm reservation-token-proxy
-
 
